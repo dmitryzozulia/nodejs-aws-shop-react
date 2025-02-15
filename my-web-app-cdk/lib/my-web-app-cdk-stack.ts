@@ -43,7 +43,9 @@ export class MyWebAppCdkStack extends cdk.Stack {
 
     // Deploy site contents to S3
     new s3deploy.BucketDeployment(this, "XXXXXXXXXXXXXXXXX", {
-      sources: [s3deploy.Source.asset(path.join(__dirname, "../../frontend/dist"))],
+      sources: [
+        s3deploy.Source.asset(path.join(__dirname, "../../frontend/dist")),
+      ],
       destinationBucket: websiteBucket,
       distribution,
       distributionPaths: ["/index.html", "/*.*"], // More specific path pattern
@@ -54,5 +56,10 @@ export class MyWebAppCdkStack extends cdk.Stack {
       value: distribution.distributionDomainName,
       description: "Website URL",
     });
+    new cdk.CfnOutput(this, "BucketName", {
+      value: websiteBucket.bucketName,
+      description: "S3 Bucket Name",
+    });
   }
 }
+
