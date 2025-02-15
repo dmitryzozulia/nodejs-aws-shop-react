@@ -33,7 +33,7 @@ export default function Header() {
             underline="none"
             to="/"
           >
-            My Store!
+            Dmitryzozulia store
           </Link>
         </Typography>
 
@@ -86,3 +86,4 @@ export default function Header() {
     </AppBar>
   );
 }
+

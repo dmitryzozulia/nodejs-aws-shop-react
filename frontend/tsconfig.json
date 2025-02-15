@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "~/*": ["./*"]
+      "~/*": ["src/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -20,7 +20,13 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/**/*", "lib/**/*"],
+  "include": [
+    "src",
+    "src/**/*",
+    "lib/**/*",
+    "frontend/public/mockServiceWorker.js"
+  ],
   "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
+
