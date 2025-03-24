@@ -14,6 +14,11 @@ const queryClient = new QueryClient({
   },
 });
 
+localStorage.setItem(
+  "authorization_token",
+  btoa("dmitryzozulia:TEST_PASSWORD")
+);
+
 if (import.meta.env.DEV) {
   const { worker } = await import("./mocks/browser");
   worker.start({ onUnhandledRequest: "bypass" });
@@ -35,3 +40,4 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
